@@ -12,7 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('index');
+});
+
+Route::get('/perfil', function () {
+    return view('perfil');
+});
+
+Route::get('/ubooks', function () {
+    return view('ubooks');
+});
+
+Route::get('/favoritos', function () {
+    return view('favoritos');
 });
 
 Route::resource('books','BookController');
