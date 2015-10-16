@@ -18,6 +18,12 @@ class BookController extends Controller
         //
     }
 
+    public function perfil()
+    {
+        $noticias=noticias::all();
+        return view('perfil',compact('noticias'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
