@@ -15,16 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
-
-Route::get('/ubooks', function () {
-    return view('ubooks');
-});
-
-Route::get('/favoritos', function () {
-    return view('favoritos');
-});
-
-Route::resource('books','BookController');
+Route::resource('perfil','PerfilController');
+Route::resource('ubooks','UbooksController');
+Route::resource('favoritos','FavoritosController');

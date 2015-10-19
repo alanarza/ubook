@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class BookController extends Controller
+class FavoritosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    public function perfil()
-    {
-        $noticias=noticias::all();
-        return view('perfil',compact('noticias'));
+        return view('favoritos.favoritos');
     }
 
     /**
