@@ -16,7 +16,7 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $noticias=Noticias::all();
+        $noticias=Noticias::paginate(3);
         return view('perfil.perfil',compact('noticias'));
     }
 

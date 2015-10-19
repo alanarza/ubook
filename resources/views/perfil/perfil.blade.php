@@ -45,7 +45,7 @@
 
 		    	{{ $noticia->contenido }}
 
-		    	{{ $noticia->autor }}
+		    <h5>	{{ $noticia->autorObj->name }} </h5>
 
 		  </div>
 		</div>
@@ -53,6 +53,8 @@
 	</div>
 
     @endforeach
+
+    {!! $noticias->render() !!}
 
 @stop
 
