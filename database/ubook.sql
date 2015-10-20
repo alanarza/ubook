@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-10-2015 a las 12:16:20
+-- Tiempo de generación: 20-10-2015 a las 12:46:21
 -- Versión del servidor: 5.5.44
 -- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
 
@@ -85,14 +85,20 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `contenido`, `autor`, `imagen`, `created_at`, `updated_at`) VALUES
-(1, 'Se cancela Gp Buenos Aires', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.  The Temur color combination has been suspect in the past, but this is a different deck. This is more of the spiritual successor to G/R Devotion than anything else. It ramps to big things, which is typically great against the smaller green decks in the format. Dragonlord Atarka at the top end is the nail in the coffin.  One of the cards I''m surprised to not see is Radiant Flames. It doesn''t work well with your Rattleclaw Mystics, but Atarka Red is likely a tough matchup. Feed the Clans does serious work there, but if you can''t answer their threats that extra ten life might not matter.  The full amount of Dispels is very clearly a nod to Jeskai, which does not seem like a great matchup. Being able to force your big spell', 1, '', '2015-10-19 03:00:00', '2015-10-19 03:00:00');
+(1, 'Se cancela Gp Buenos Aires', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.', 1, '', '2015-10-19 03:00:00', '2015-10-19 03:00:00'),
+(2, 'Tenemos nuevo campeon', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.', 2, '', '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(3, 'Top 8 mejores jugadas', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.', 3, '', '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(4, 'Se cancela Gp Buenos Aires', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.  The Temur color combination has been suspect in the past, but this is a different deck. This is more of the spiritual successor to G/R Devotion than anything else. It ramps to big things, which is typically great against the smaller green decks in the format. Dragonlord Atarka at the top end is the nail in the coffin.  One of the cards I''m surprised to not see is Radiant Flames. It doesn''t work well with your Rattleclaw Mystics, but Atarka Red is likely a tough matchup. Feed the Clans does serious work there, but if you can''t answer their threats that extra ten life might not matter.  The full amount of Dispels is very clearly a nod to Jeskai, which does not seem like a great matchup. Being able to force your big spell', 1, '', '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(5, 'Nuevos titulos para la entrega', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.  The Temur color combination has been suspect in the past, but this is a different deck. This is more of the spiritual successor to G/R Devotion than anything else. It ramps to big things, which is typically great against the smaller green decks in the format. Dragonlord Atarka at the top end is the nail in the coffin.  One of the cards I''m surprised to not see is Radiant Flames. It doesn''t work well with your Rattleclaw Mystics, but Atarka Red is likely a tough matchup. Feed the Clans does serious work there, but if you can''t answer their threats that extra ten life might not matter.  The full amount of Dispels is very clearly a nod to Jeskai, which does not seem like a great matchup. Being able to force your big spell', 2, '', '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(6, 'Nuevo spoiler revelado', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.  The Temur color combination has been suspect in the past, but this is a different deck. This is more of the spiritual successor to G/R Devotion than anything else. It ramps to big things, which is typically great against the smaller green decks in the format. Dragonlord Atarka at the top end is the nail in the coffin.  One of the cards I''m surprised to not see is Radiant Flames. It doesn''t work well with your Rattleclaw Mystics, but Atarka Red is likely a tough matchup. Feed the Clans does serious work there, but if you can''t answer their threats that extra ten life might not matter.  The full amount of Dispels is very clearly a nod to Jeskai, which does not seem like a great matchup. Being able to force your big spell', 1, '', '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(7, 'Revelacion de la temporada', 'If G/W Megamorph is a good deck, then Dragons are a fantastic answer. Planeswalkers are pretty good there too, especially those with high loyalty. They have no way to remove them outside of creature combat, so if you have enough removal or blockers you should be able to run away with the game.  The Temur color combination has been suspect in the past, but this is a different deck. This is more of the spiritual successor to G/R Devotion than anything else. It ramps to big things, which is typically great against the smaller green decks in the format. Dragonlord Atarka at the top end is the nail in the coffin.  One of the cards I''m surprised to not see is Radiant Flames. It doesn''t work well with your Rattleclaw Mystics, but Atarka Red is likely a tough matchup. Feed the Clans does serious work there, but if you can''t answer their threats that extra ten life might not matter.  The full amount of Dispels is very clearly a nod to Jeskai, which does not seem like a great matchup. Being able to force your big spell', 3, '', '2015-10-20 03:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -124,14 +130,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Eliezer Arza', 'arzapersonal@gmail.com', '1234', NULL, '2015-10-19 03:00:00', '2015-10-19 03:00:00');
+(1, 'Eliezer Arza', 'arzapersonal@gmail.com', '1234', NULL, '2015-10-19 03:00:00', '2015-10-19 03:00:00'),
+(2, 'Fernando Valdebenito', 'fervaldex@gmail.com', '123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(3, 'Martin Mariano', 'martlon@gmail.com', '12123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
