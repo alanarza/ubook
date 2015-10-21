@@ -65,7 +65,7 @@
 
                 <div class="form-group">
 
-                  <form action="control.php" method="post">
+                  <form action="{{route('auth/login')}}" method="post">
                     
                     <div class="form-group">
                       <div class="col-lg-12">
