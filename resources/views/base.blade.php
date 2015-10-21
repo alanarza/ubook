@@ -24,7 +24,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  
 </head>
 
 <body>
@@ -59,13 +58,13 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Alan <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Iniciar Sesion <span class="caret"></span></a>
               <ul class="dropdown-menu">
                <fieldset>
 
                 <div class="form-group">
 
-                  <form action="{{route('auth/login')}}" method="post">
+                  <form action="login" method="post">
                     
                     <div class="form-group">
                       <div class="col-lg-12">
@@ -79,13 +78,12 @@
                       </div>
                     </div>
 
-                    <input id="action" type="hidden" name="action" value="login"/>
-
                     <div class="col-sm-12" align="center"  style="margin-top: 10px;">         
                       <button type="submit" class="btn btn-success btn-sm">Ingresar</button>
                     </div>
 
                   </form>
+
                 </div>
               </fieldset>
               </ul>
@@ -96,14 +94,6 @@
     </nav>
 
 @show
-  
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="page-header">
-                <h1 id="type">Bienvenido Alan</h1>
-            </div>
-        </div>
-    </div>
 
 @section('sidebar')
 <div class="col-lg-3">
@@ -123,6 +113,7 @@
 </div>
 @show
 
+@section('cuerpo')
 <div class="col-lg-6">
 <div class="panel panel-default">
   <div class="panel-body">
@@ -148,8 +139,7 @@
   </div>
 </div>
 </div>
-
-
+@show
 
   </div>
   </div>

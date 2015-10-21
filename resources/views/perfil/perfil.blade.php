@@ -7,6 +7,14 @@
 	@parent
 
 @stop
+
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="page-header">
+            <h1 id="type">Bienvenido {{ $user->nombre }}</h1>
+        </div>
+    </div>
+  </div>
  
 @section('sidebar')
 
@@ -43,7 +51,7 @@
 		  <div class="media-body">
 		    <h4 class="media-heading">{{ $noticia->titulo }}</h4>
 
-		    	{{ $noticia->contenido }}
+		    	{{ $noticia->resumen }}
 
 		    <h5>	{{ $noticia->autorObj->name }} </h5>
 

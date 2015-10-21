@@ -6,6 +6,7 @@ use App\Noticias;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PerfilController extends Controller
 {
@@ -16,8 +17,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $noticias=Noticias::paginate(3);
-        return view('perfil.perfil',compact('noticias'));
+        $noticias=Noticias::orderBy('id','desc')->paginate(4);
+        $user = Auth::user();
+        return view('perfil.perfil',compact('noticias','user'));
     }
 
     /**

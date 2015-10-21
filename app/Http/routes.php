@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Rutas de login
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
+// Rutas de registro
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+// Rutas rest
+Route::resource('/','IndexController');
 Route::resource('perfil','PerfilController');
 Route::resource('ubooks','UbooksController');
 Route::resource('favoritos','FavoritosController');

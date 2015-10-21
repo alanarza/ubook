@@ -2,6 +2,14 @@
 
 @section('title', 'Mis Ubooks')
 
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="page-header">
+            <h1 id="type">Bienvenido {{ $user->nombre }}</h1>
+        </div>
+    </div>
+  </div>
+
 @section('sidebar')
 
 <div class="col-lg-3">
