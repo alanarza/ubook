@@ -22,6 +22,11 @@ class PerfilController extends Controller
         return view('perfil.perfil',compact('noticias','user'));
     }
 
+    public function publico()
+    {
+        return view('perfil.perfil_publico');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

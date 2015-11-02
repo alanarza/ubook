@@ -18,6 +18,11 @@ class UbooksController extends Controller
         return view('ubooks.ubooks');
     }
 
+    public function publico()
+    {
+        return view('ubooks.ubooks_publico');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

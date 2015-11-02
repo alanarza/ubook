@@ -21,64 +21,64 @@
 	  <style type="text/css">
 
       .navbar-inverse {
-  background-color: #454545;
-  border-color: #e7e7e7;
-}
-.navbar-inverse .navbar-brand {
-  color: #ffffff;
-}
-.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-  color: #a7a7a7;
-}
-.navbar-inverse .navbar-text {
-  color: #ffffff;
-}
-.navbar-inverse .navbar-nav > li > a {
-  color: #ffffff;
-}
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-  color: #a7a7a7;
-}
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #a7a7a7;
-  background-color: #e7e7e7;
-}
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  color: #a7a7a7;
-  background-color: #e7e7e7;
-}
-.navbar-inverse .navbar-toggle {
-  border-color: #e7e7e7;
-}
-.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-  background-color: #e7e7e7;
-}
-.navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #ffffff;
-}
-.navbar-inverse .navbar-collapse,
-.navbar-inverse .navbar-form {
-  border-color: #ffffff;
-}
-.navbar-inverse .navbar-link {
-  color: #ffffff;
-}
-.navbar-inverse .navbar-link:hover {
-  color: #a7a7a7;
-}
+        background-color: #454545;
+        border-color: #e7e7e7;
+      }
+      .navbar-inverse .navbar-brand {
+        color: #ffffff;
+      }
+      .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+        color: #a7a7a7;
+      }
+      .navbar-inverse .navbar-text {
+        color: #ffffff;
+      }
+      .navbar-inverse .navbar-nav > li > a {
+        color: #ffffff;
+      }
+      .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: #a7a7a7;
+      }
+      .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+        color: #a7a7a7;
+        background-color: #e7e7e7;
+      }
+      .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+        color: #a7a7a7;
+        background-color: #e7e7e7;
+      }
+      .navbar-inverse .navbar-toggle {
+        border-color: #e7e7e7;
+      }
+      .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+        background-color: #e7e7e7;
+      }
+      .navbar-inverse .navbar-toggle .icon-bar {
+        background-color: #ffffff;
+      }
+      .navbar-inverse .navbar-collapse,
+      .navbar-inverse .navbar-form {
+        border-color: #ffffff;
+      }
+      .navbar-inverse .navbar-link {
+        color: #ffffff;
+      }
+      .navbar-inverse .navbar-link:hover {
+        color: #a7a7a7;
+      }
 
-@media (max-width: 767px) {
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: #ffffff;
-  }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #a7a7a7;
-  }
-  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #a7a7a7;
-    background-color: #e7e7e7;
-  }
-}
+      @media (max-width: 767px) {
+        .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+          color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: #a7a7a7;
+        }
+        .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+          color: #a7a7a7;
+          background-color: #e7e7e7;
+        }
+      }
 
       body {
         min-height: 250px;

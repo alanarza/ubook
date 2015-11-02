@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 21, 2015 at 07:31 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.9
+-- Servidor: localhost
+-- Tiempo de generación: 02-11-2015 a las 12:01:14
+-- Versión del servidor: 5.5.44
+-- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ubook`
+-- Base de datos: `ubook`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `books`
+-- Estructura de tabla para la tabla `books`
 --
 
 CREATE TABLE IF NOT EXISTS `books` (
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `books`
+-- Volcado de datos para la tabla `books`
 --
 
 INSERT INTO `books` (`id`, `isbn`, `title`, `author`, `created_at`, `updated_at`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `books` (`id`, `isbn`, `title`, `author`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noticias`
+-- Estructura de tabla para la tabla `noticias`
 --
 
 CREATE TABLE IF NOT EXISTS `noticias` (
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `noticias`
+-- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen`, `created_at`, `updated_at`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -136,13 +136,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `nombre`, `apellido`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Eliezer Arza', '', '', 'arzapersonal@gmail.com', '1234', NULL, '2015-10-19 03:00:00', '2015-10-19 03:00:00'),
-(2, 'Fernando Valdebenito', '', '', 'fervaldex@gmail.com', '123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
-(3, 'Martin Mariano', '', '', 'martlon@gmail.com', '12123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00');
+(1, 'Alancitox', 'Eliezer', 'Arza', 'arzapersonal@gmail.com', '1234', NULL, '2015-10-19 03:00:00', '2015-10-19 03:00:00'),
+(2, 'r3n3g4d3', 'Fernando', 'Valdebenito', 'fervaldex@gmail.com', '123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
+(3, 'Bolster', 'Mariano', 'Martino', 'martlon@gmail.com', '12123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
