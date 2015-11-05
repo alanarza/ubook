@@ -85,12 +85,72 @@
         padding-top: 70px;
       }
 
+      $('#myModal').appendTo("body") 
+
     </style>
 
 
 </head>
 
 <body>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Registro de Usuario</h4>
+      </div>
+      <div class="modal-body">
+        
+        <form method="POST" action="/auth/register">
+          <fieldset>
+
+            {!! csrf_field() !!}
+
+            <div class="form-group">
+              <label for="nomUsuario" class="col-lg-3 control-label">Usuario</label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" id="nomUsuario" name="name" placeholder="Nombre de Usuario">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="col-lg-3 control-label">Email</label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" id="email" name="email" placeholder="alguien@gmail.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword" class="col-lg-3 control-label">Password</label>
+              <div class="col-lg-9">
+                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword2" class="col-lg-3 control-label">Password</label>
+              <div class="col-lg-9">
+                <input type="password" class="form-control" id="inputPassword2" name="password_confirmation" placeholder="Confirmar Password">
+              </div>
+            </div>
+
+            
+          </fieldset>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Modal-->
+
 <div class="container">
   <div class="row">
 
@@ -121,23 +181,25 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Iniciar Sesion <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion <span class="caret"></span></a>
               <ul class="dropdown-menu">
                <fieldset>
 
                 <div class="form-group">
 
-                  <form action="login" method="post">
+                  <form action="/auth/login" method="post">
+
+                    {!! csrf_field() !!}
                     
                     <div class="form-group">
                       <div class="col-lg-12">
-                        <input type="text" class="form-control input-sm" id="user" name="user" placeholder="Usuario" required>
+                        <input type="text" class="form-control input-sm" id="email" name="email" placeholder="Email" required>
                       </div>
                     </div>
 
                     <div class="form-group" >
                       <div class="col-lg-12" style="margin-top: 5px;">
-                        <input type="password" class="form-control input-sm" id="pass" name="pass" placeholder="Contraseña" required>
+                        <input type="password" class="form-control input-sm" id="password" name="password" placeholder="Contraseña" required>
                       </div>
                     </div>
 
@@ -150,11 +212,31 @@
                 </div>
               </fieldset>
               </ul>
+
+              <!--Aca empieza la seccion de registro-->
+
+              <li ><a href="#myModal"data-toggle="modal"  ><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+
+              <!--Aca termina la seccion de registro-->
+
             </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+    <div class="container">
+               @if (Session::has('errors'))
+        <div class="alert alert-warning" role="alert">
+      <ul>
+              <strong>Oops! Something went wrong : </strong>
+          @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    </div>
 
   @show
 
