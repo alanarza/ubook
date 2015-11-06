@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 02-11-2015 a las 12:01:14
--- Versión del servidor: 5.5.44
--- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
+-- Host: localhost
+-- Generation Time: Nov 06, 2015 at 06:15 PM
+-- Server version: 5.5.43-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.9
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `ubook`
+-- Database: `ubook`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `books`
+-- Table structure for table `books`
 --
 
 CREATE TABLE IF NOT EXISTS `books` (
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Volcado de datos para la tabla `books`
+-- Dumping data for table `books`
 --
 
 INSERT INTO `books` (`id`, `isbn`, `title`, `author`, `created_at`, `updated_at`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `books` (`id`, `isbn`, `title`, `author`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `noticias`
+-- Table structure for table `noticias`
 --
 
 CREATE TABLE IF NOT EXISTS `noticias` (
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `noticias`
+-- Dumping data for table `noticias`
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen`, `created_at`, `updated_at`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -118,11 +118,34 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `rol`
+--
+
+CREATE TABLE IF NOT EXISTS `rol` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `rol`
+--
+
+INSERT INTO `rol` (`id`, `nombre`) VALUES
+(1, 'usuario'),
+(2, 'autor'),
+(3, 'administrador'),
+(4, 'super administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rol_id` int(20) NOT NULL DEFAULT '1',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
@@ -133,16 +156,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `nombre`, `apellido`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Alancitox', 'Eliezer', 'Arza', 'arzapersonal@gmail.com', '1234', NULL, '2015-10-19 03:00:00', '2015-10-19 03:00:00'),
-(2, 'r3n3g4d3', 'Fernando', 'Valdebenito', 'fervaldex@gmail.com', '123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00'),
-(3, 'Bolster', 'Mariano', 'Martino', 'martlon@gmail.com', '12123123', NULL, '2015-10-20 03:00:00', '0000-00-00 00:00:00');
+INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'B2Y3LkTElg2hAVUSl4XsrU6TZVernMSsHAeTYO7hreuHnQJLfsD1aNRio3X7', '2015-10-19 03:00:00', '2015-11-06 22:25:53'),
+(2, 1, 'martincho', '', '', 'martinpentucci@gmail.com', '$2y$10$.vFsj7hWAWKCKYi.YooQkudK7d5pYM5dvvjzmM3Z1u.8noXoyxRsK', 'yQxgP12Tc7NB6Kjv4PobB2Wz5NEOmlS0y0LePqt4dGstXZSEQMUZsfmpLXle', '2015-11-06 22:31:38', '2015-11-06 22:33:10'),
+(3, 1, 'valdesoft', '', '', 'fervaldex01@gmail.com', '$2y$10$SGmMUUOowH6njM.c77jJeO1Jjjraw8cuVilj3Qva7Dp9ZFCEuy5OG', 'FuKSy1rFPJc58NHfyDNS1Xmv2pnE0LSzkublACUgHjpxZSVCLU8jpbSTMofS', '2015-11-06 23:08:45', '2015-11-06 23:09:30'),
+(6, 1, 'porras', '', '', 'algo@gmail.com', '$2y$10$RxED7hIkGtARYkZslZx92.swytFwPwEGbydDRPQY877yThDWzUBp.', NULL, '2015-11-07 00:03:56', '2015-11-07 00:03:56');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

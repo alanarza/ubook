@@ -104,7 +104,7 @@
       </div>
       <div class="modal-body">
         
-        <form method="POST" action="/auth/register">
+        <form id="miform" method="POST" action="{{ url("auth/register") }}">
           <fieldset>
 
             {!! csrf_field() !!}
@@ -144,7 +144,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" form="miform" class="btn btn-primary">Registrarse</button>
       </div>
     </div>
   </div>
@@ -187,13 +187,13 @@
 
                 <div class="form-group">
 
-                  <form action="/auth/login" method="post">
+                  <form action="{{ url("auth/login") }}" method="post">
 
                     {!! csrf_field() !!}
                     
                     <div class="form-group">
                       <div class="col-lg-12">
-                        <input type="text" class="form-control input-sm" id="email" name="email" placeholder="Email" required>
+                        <input type="text" class="form-control input-sm" id="name" name="name" placeholder="Usuario" required>
                       </div>
                     </div>
 
@@ -226,7 +226,7 @@
     </nav>
 
     <div class="container">
-               @if (Session::has('errors'))
+               @if (count($errors) > 0)
         <div class="alert alert-warning" role="alert">
       <ul>
               <strong>Oops! Something went wrong : </strong>
