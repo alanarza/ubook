@@ -82,7 +82,7 @@
 
       body {
         min-height: 250px;
-        padding-top: 70px;
+        padding-top: 65px;
       }
 
       $('#myModal').appendTo("body") 
@@ -116,23 +116,37 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 5px;">
+              <label for="nombre" class="col-lg-3 control-label">Nombre</label>
+              <div class="col-lg-9" style="margin-top: 5px;">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 5px;">
+              <label for="apellido" class="col-lg-3 control-label">Apellido</label>
+              <div class="col-lg-9" style="margin-top: 5px;">
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 5px;">
               <label for="email" class="col-lg-3 control-label">Email</label>
-              <div class="col-lg-9">
+              <div class="col-lg-9" style="margin-top: 5px;">
                 <input type="text" class="form-control" id="email" name="email" placeholder="alguien@gmail.com">
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 5px;">
               <label for="inputPassword" class="col-lg-3 control-label">Password</label>
-              <div class="col-lg-9">
+              <div class="col-lg-9" style="margin-top: 5px;">
                 <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 5px;">
               <label for="inputPassword2" class="col-lg-3 control-label">Password</label>
-              <div class="col-lg-9">
+              <div class="col-lg-9" style="margin-top: 5px;">
                 <input type="password" class="form-control" id="inputPassword2" name="password_confirmation" placeholder="Confirmar Password">
               </div>
             </div>
@@ -205,6 +219,10 @@
 
                     <div class="col-sm-12" align="center"  style="margin-top: 10px;">         
                       <button type="submit" class="btn btn-success btn-sm">Ingresar</button>
+                    </div>
+
+                    <div class="col-sm-12" align="center"  style="margin-top: 10px; font-size: 0.875em;">
+                      <a href="#">Olvidaste tu contraseña?</a>
                     </div>
 
                   </form>

@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 06, 2015 at 06:15 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.9
+-- Servidor: localhost
+-- Tiempo de generación: 09-11-2015 a las 12:02:56
+-- Versión del servidor: 5.5.44
+-- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ubook`
+-- Base de datos: `ubook`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `books`
+-- Estructura de tabla para la tabla `books`
 --
 
 CREATE TABLE IF NOT EXISTS `books` (
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `books`
+-- Volcado de datos para la tabla `books`
 --
 
 INSERT INTO `books` (`id`, `isbn`, `title`, `author`, `created_at`, `updated_at`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `books` (`id`, `isbn`, `title`, `author`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noticias`
+-- Estructura de tabla para la tabla `noticias`
 --
 
 CREATE TABLE IF NOT EXISTS `noticias` (
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `noticias`
+-- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen`, `created_at`, `updated_at`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
 CREATE TABLE IF NOT EXISTS `rol` (
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `rol` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
 INSERT INTO `rol` (`id`, `nombre`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `rol` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -156,17 +156,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'B2Y3LkTElg2hAVUSl4XsrU6TZVernMSsHAeTYO7hreuHnQJLfsD1aNRio3X7', '2015-10-19 03:00:00', '2015-11-06 22:25:53'),
+(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'yxf5Xyre8ZZofCryWYYcSp8xOFQZyNSF1MdeeKUDSgsJWqi74p5PpV0i46nl', '2015-10-19 03:00:00', '2015-11-09 17:48:09'),
 (2, 1, 'martincho', '', '', 'martinpentucci@gmail.com', '$2y$10$.vFsj7hWAWKCKYi.YooQkudK7d5pYM5dvvjzmM3Z1u.8noXoyxRsK', 'yQxgP12Tc7NB6Kjv4PobB2Wz5NEOmlS0y0LePqt4dGstXZSEQMUZsfmpLXle', '2015-11-06 22:31:38', '2015-11-06 22:33:10'),
 (3, 1, 'valdesoft', '', '', 'fervaldex01@gmail.com', '$2y$10$SGmMUUOowH6njM.c77jJeO1Jjjraw8cuVilj3Qva7Dp9ZFCEuy5OG', 'FuKSy1rFPJc58NHfyDNS1Xmv2pnE0LSzkublACUgHjpxZSVCLU8jpbSTMofS', '2015-11-06 23:08:45', '2015-11-06 23:09:30'),
-(6, 1, 'porras', '', '', 'algo@gmail.com', '$2y$10$RxED7hIkGtARYkZslZx92.swytFwPwEGbydDRPQY877yThDWzUBp.', NULL, '2015-11-07 00:03:56', '2015-11-07 00:03:56');
+(6, 1, 'porras', '', '', 'algo@gmail.com', '$2y$10$RxED7hIkGtARYkZslZx92.swytFwPwEGbydDRPQY877yThDWzUBp.', NULL, '2015-11-07 00:03:56', '2015-11-07 00:03:56'),
+(7, 1, 'Mario', '', '', 'marioseba@gmail.com', '$2y$10$T.kf5joXzZhBHxGoItZB1.TfTpH16TqYALZuf.NnEWxoukHjC1LU.', 'TO85cYK06RcMIPEDNKRqVU7aEGxWQTaEu1mtlspGjoNXAM2Gh739mgp4cNON', '2015-11-09 14:54:48', '2015-11-09 15:42:25'),
+(8, 1, 'Grimrock', '', '', 'piscomarce@gmail.com', '$2y$10$4Cb2G0lGgQe4PYGWM6YrKeZjTIyJRJUYujayzV9Pf6ojkHX.PUKwy', 'aqSvytED7mqQZsrkU1WXD4iA4CywWZ6K4TYgInBThh8D8vGZwwVQm9utCnFc', '2015-11-09 15:48:18', '2015-11-09 15:50:02'),
+(9, 1, 'Fafa', '', '', 'difafa@gmail.com', '$2y$10$rVWETb8TQv8m/KBqWb3A4uTv91so3gxF59WedkCOkk2HN0w52afyu', '4qDem9lYdHb6n2AIfZM4rRGe8ZxDMOUkUchwFitcTl7TpNpxSoe7pwdr7Tai', '2015-11-09 15:51:02', '2015-11-09 15:54:13'),
+(10, 1, 'condor', '', '', 'sebacondor@gmail.com', '$2y$10$CgsCT7nAuUPhH1IdQe.eEOwufAqFzhnP6CLXgCLClgre5l8P15a/.', '4KBVfMNC51AIwQ1XVdwJ82zEZaOesU7JNujB1yH48OoEjxmjXHBrQEgZg7L5', '2015-11-09 15:54:47', '2015-11-09 16:29:22'),
+(11, 1, 'destro', 'martin', 'alpha', 'destro@gmail.com', '$2y$10$EDtny1LIX10YU0WE9AcGHekBKyyGSb/eA/Ms0eV99SmKGrFB/49r6', 'Pbq8DqUGkyAo4Mqa6198i1Yyg316A2FpSWewQIcHSmcgstdUvkz4JLOqy5Dk', '2015-11-09 15:55:52', '2015-11-09 17:22:39');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

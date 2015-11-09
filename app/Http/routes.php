@@ -20,6 +20,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Rutas rest
 Route::resource('/','IndexController');
+Route::resource('inicio','IndexController@inicio');
 Route::resource('perfil','PerfilController');
 Route::resource('perfil_publico','PerfilController@publico');
 Route::resource('ubooks','UbooksController');

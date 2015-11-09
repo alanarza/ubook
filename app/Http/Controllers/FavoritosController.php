@@ -15,7 +15,8 @@ class FavoritosController extends Controller
      */
     public function index()
     {
-        return view('favoritos.favoritos');
+        $user = Auth::user();
+        return view('favoritos.favoritos',compact('user'));
     }
 
     /**

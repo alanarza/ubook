@@ -25,7 +25,7 @@ class AuthController extends Controller
 
     protected $username = 'name';
 
-    protected $redirectPath = '/perfil';
+    protected $redirectPath = '/inicio';
 
     protected $loginPath = '/';
 
@@ -51,6 +51,9 @@ class AuthController extends Controller
             'name' => 'required|unique:users|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'nombre' => 'required|max:255',
+            'nombre' => 'required|alpha|max:255',
+            'apellido' => 'required|alpha|max:255',
         ]);
     }
 
@@ -63,9 +66,11 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'      => $data['name'],
+            'nombre'    => $data['nombre'],
+            'apellido'  => $data['apellido'],
+            'email'     => $data['email'],
+            'password'  => bcrypt($data['password']),
         ]);
     }
 
