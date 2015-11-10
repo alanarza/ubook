@@ -11,18 +11,23 @@
 |
 */
 
-//Rutas de login
+// Rutas de login
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Rutas de registro
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// Rutas rest
+// Rutas publicas
 Route::resource('/','IndexController');
-Route::resource('inicio','IndexController@inicio');
-Route::resource('perfil','PerfilController');
 Route::resource('perfil_publico','PerfilController@publico');
-Route::resource('ubooks','UbooksController');
 Route::resource('ubooks_publico','UbooksController@publico');
-Route::resource('favoritos','FavoritosController');
+
+// Rutas protegidas
+$router->group(['middleware' => ['auth']], function()
+{
+	Route::resource('inicio','IndexController@inicio');
+	Route::resource('perfil','PerfilController');
+	Route::resource('ubooks','UbooksController');
+	Route::resource('favoritos','FavoritosController');
+});
