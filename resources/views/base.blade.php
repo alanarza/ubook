@@ -94,6 +94,7 @@
 
 <body>
 
+@section('modal')
 <!-- Modal -->
 <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -164,6 +165,7 @@
   </div>
 </div>
 <!--End Modal-->
+@show
 
 <div class="container">
   <div class="row">
@@ -258,7 +260,19 @@
 
   @show
 
+  @section('titulo')
+
+  @show  
+
+  @section('nav_side')
+
+  @show
+
   @section('contenido')
+
+  @show
+
+  @section('sidebar')
 
   @show
 

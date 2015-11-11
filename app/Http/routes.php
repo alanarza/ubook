@@ -19,7 +19,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Rutas publicas
-Route::resource('/','IndexController');
+//Route::resource('/','IndexController');
 Route::resource('perfil_publico','PerfilController@publico');
 Route::resource('ubooks_publico','UbooksController@publico');
 
@@ -29,5 +29,12 @@ $router->group(['middleware' => ['auth']], function()
 	Route::resource('inicio','IndexController@inicio');
 	Route::resource('perfil','PerfilController');
 	Route::resource('ubooks','UbooksController');
+	Route::resource('book_vista','UbooksController@vista');
 	Route::resource('favoritos','FavoritosController');
+});
+
+// Rutas protegidas if authenticated
+$router->group(['middleware' => ['guest']], function()
+{
+	Route::resource('/','IndexController');
 });

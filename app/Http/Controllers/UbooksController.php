@@ -25,6 +25,12 @@ class UbooksController extends Controller
         return view('ubooks.ubooks_publico');
     }
 
+    public function vista()
+    {
+        $user = Auth::user();
+        return view('ubooks.book_vista',compact('user'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
