@@ -50,7 +50,6 @@
 @stop
 
 @section('contenido')
- 
-Hola
+
 
 @stop
