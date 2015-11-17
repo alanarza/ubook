@@ -27,6 +27,12 @@ class PerfilController extends Controller
         return view('perfil.perfil_publico');
     }
 
+    public function cuenta()
+    {
+        $user = Auth::user();
+        return view('cuenta',compact('user'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -19,7 +19,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Rutas publicas
-//Route::resource('/','IndexController');
 Route::resource('perfil_publico','PerfilController@publico');
 Route::resource('ubooks_publico','UbooksController@publico');
 
@@ -31,10 +30,25 @@ $router->group(['middleware' => ['auth']], function()
 	Route::resource('ubooks','UbooksController');
 	Route::resource('book_vista','UbooksController@vista');
 	Route::resource('favoritos','FavoritosController');
+    Route::resource('cuenta','PerfilController@cuenta');
 });
 
 // Rutas protegidas if authenticated
 $router->group(['middleware' => ['guest']], function()
 {
 	Route::resource('/','IndexController');
+});
+
+// Rutas de almacenamiento
+Route::get('storage/{archivo}', function ($archivo) {
+     $public_path = public_path();
+     $url = $public_path.'/storage/'.$archivo;
+     //verificamos si el archivo existe y lo retornamos
+     if (Storage::exists($archivo))
+     {
+       return response()->download($url);
+     }
+     //si no se encuentra lanzamos un error 404.
+     abort(404);
+
 });

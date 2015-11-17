@@ -92,7 +92,7 @@ Hola
 
 @stop
 
-@section('sidebar')
+@section('side')
 
 <div class="col-lg-3">
 <div class="panel panel-default">

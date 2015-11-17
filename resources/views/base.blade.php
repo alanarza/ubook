@@ -272,7 +272,7 @@
 
   @show
 
-  @section('sidebar')
+  @section('side')
 
   @show
 

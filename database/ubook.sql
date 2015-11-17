@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 13, 2015 at 05:45 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.9
+-- Servidor: localhost
+-- Tiempo de generación: 17-11-2015 a las 12:13:32
+-- Versión del servidor: 5.5.44
+-- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,56 +17,59 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ubook`
+-- Base de datos: `ubook`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `books`
+-- Estructura de tabla para la tabla `books`
 --
 
 CREATE TABLE IF NOT EXISTS `books` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `autor` int(10) NOT NULL,
   `descripcion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `autor` (`autor`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `books`
+-- Volcado de datos para la tabla `books`
 --
 
 INSERT INTO `books` (`id`, `titulo`, `autor`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'My first book', 0, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'My second book', 0, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'another book', 0, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'really another', 0, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'My first book', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'My second book', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'another book', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'really another', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_item`
+-- Estructura de tabla para la tabla `book_item`
 --
 
 CREATE TABLE IF NOT EXISTS `book_item` (
-  `id` int(80) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `book_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `book_id` (`book_id`),
+  KEY `item_id` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `item`
+-- Estructura de tabla para la tabla `item`
 --
 
 CREATE TABLE IF NOT EXISTS `item` (
-  `id` int(80) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   `ruta` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
@@ -75,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `item` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -84,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -99,11 +102,11 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noticias`
+-- Estructura de tabla para la tabla `noticias`
 --
 
 CREATE TABLE IF NOT EXISTS `noticias` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `resumen` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `contenido` varchar(3000) COLLATE utf8_unicode_ci NOT NULL,
@@ -115,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `noticias`
+-- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen`, `created_at`, `updated_at`) VALUES
@@ -130,7 +133,7 @@ INSERT INTO `noticias` (`id`, `titulo`, `resumen`, `contenido`, `autor`, `imagen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -144,17 +147,17 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
 CREATE TABLE IF NOT EXISTS `rol` (
-  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
 INSERT INTO `rol` (`id`, `nombre`) VALUES
@@ -166,12 +169,12 @@ INSERT INTO `rol` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `rol_id` int(20) NOT NULL DEFAULT '1',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rol_id` int(11) NOT NULL DEFAULT '1',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
@@ -181,11 +184,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
+  UNIQUE KEY `users_email_unique` (`email`),
+  KEY `rol_id` (`rol_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -199,6 +203,29 @@ INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `email`, `pas
 (10, 1, 'condor', '', '', 'sebacondor@gmail.com', '$2y$10$CgsCT7nAuUPhH1IdQe.eEOwufAqFzhnP6CLXgCLClgre5l8P15a/.', '4KBVfMNC51AIwQ1XVdwJ82zEZaOesU7JNujB1yH48OoEjxmjXHBrQEgZg7L5', '2015-11-09 15:54:47', '2015-11-09 16:29:22'),
 (11, 1, 'destro', 'martin', 'alpha', 'destro@gmail.com', '$2y$10$EDtny1LIX10YU0WE9AcGHekBKyyGSb/eA/Ms0eV99SmKGrFB/49r6', 'Pbq8DqUGkyAo4Mqa6198i1Yyg316A2FpSWewQIcHSmcgstdUvkz4JLOqy5Dk', '2015-11-09 15:55:52', '2015-11-09 17:22:39'),
 (12, 1, 'Delver', 'Agustin', 'Riveros', 'agusriver@gmail.com', '$2y$10$SdzEWfMBsJZvmq4L4/M/xuA6QVYmYBeELyGV1cbWIWmfkP.y0wp7.', NULL, '2015-11-13 23:36:12', '2015-11-13 23:36:12');
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `books`
+--
+ALTER TABLE `books`
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`autor`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `book_item`
+--
+ALTER TABLE `book_item`
+  ADD CONSTRAINT `book_item_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `book_item_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
