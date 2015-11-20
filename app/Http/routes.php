@@ -31,6 +31,7 @@ $router->group(['middleware' => ['auth']], function()
 	Route::resource('book_vista','UbooksController@vista');
 	Route::resource('favoritos','FavoritosController');
     Route::resource('cuenta','PerfilController@cuenta');
+    Route::post('gestion_cuenta','GestionCuentaController@save');
 });
 
 // Rutas protegidas if authenticated
@@ -40,6 +41,8 @@ $router->group(['middleware' => ['guest']], function()
 });
 
 // Rutas de almacenamiento
+
+// Ruta para obtener archivos
 Route::get('storage/{archivo}', function ($archivo) {
      $public_path = public_path();
      $url = $public_path.'/storage/'.$archivo;
@@ -52,3 +55,6 @@ Route::get('storage/{archivo}', function ($archivo) {
      abort(404);
 
 });
+
+// Ruta para subir archivos
+//Route::post('storage/create', 'StorageController@save');

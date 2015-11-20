@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-11-2015 a las 12:13:32
+-- Tiempo de generación: 20-11-2015 a las 12:44:50
 -- Versión del servidor: 5.5.44
 -- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `autor` (`autor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `books`
@@ -45,7 +45,8 @@ INSERT INTO `books` (`id`, `titulo`, `autor`, `descripcion`, `created_at`, `upda
 (1, 'My first book', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 'My second book', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'another book', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'really another', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(4, 'really another', 1, 'hola', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Comunes', 12, 'Carpeta de comunes', '2015-11-20 03:00:00', '2015-11-20 03:00:00');
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,17 @@ CREATE TABLE IF NOT EXISTS `book_item` (
   PRIMARY KEY (`id`),
   KEY `book_id` (`book_id`),
   KEY `item_id` (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `book_item`
+--
+
+INSERT INTO `book_item` (`id`, `book_id`, `item_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 5, 1),
+(4, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -73,7 +84,14 @@ CREATE TABLE IF NOT EXISTS `item` (
   `nombre` varchar(255) NOT NULL,
   `ruta` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `item`
+--
+
+INSERT INTO `item` (`id`, `nombre`, `ruta`) VALUES
+(1, 'Justice', 'One day shriooot... one day');
 
 -- --------------------------------------------------------
 
@@ -114,7 +132,8 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `imagen` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `autor` (`autor`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
@@ -178,6 +197,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `foto` varchar(300) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no-avatar.png',
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -186,23 +206,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `rol_id` (`rol_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'zbKhfe1HfA4EhhUlucnn5eL1Z7jqSed4S4v84Dz0M84Y0qZZds3InfCzgX4P', '2015-10-19 03:00:00', '2015-11-13 23:35:42'),
-(2, 1, 'martincho', '', '', 'martinpentucci@gmail.com', '$2y$10$.vFsj7hWAWKCKYi.YooQkudK7d5pYM5dvvjzmM3Z1u.8noXoyxRsK', 'yQxgP12Tc7NB6Kjv4PobB2Wz5NEOmlS0y0LePqt4dGstXZSEQMUZsfmpLXle', '2015-11-06 22:31:38', '2015-11-06 22:33:10'),
-(3, 1, 'valdesoft', '', '', 'fervaldex01@gmail.com', '$2y$10$SGmMUUOowH6njM.c77jJeO1Jjjraw8cuVilj3Qva7Dp9ZFCEuy5OG', 'FuKSy1rFPJc58NHfyDNS1Xmv2pnE0LSzkublACUgHjpxZSVCLU8jpbSTMofS', '2015-11-06 23:08:45', '2015-11-06 23:09:30'),
-(6, 1, 'porras', '', '', 'algo@gmail.com', '$2y$10$RxED7hIkGtARYkZslZx92.swytFwPwEGbydDRPQY877yThDWzUBp.', NULL, '2015-11-07 00:03:56', '2015-11-07 00:03:56'),
-(7, 1, 'Mario', '', '', 'marioseba@gmail.com', '$2y$10$T.kf5joXzZhBHxGoItZB1.TfTpH16TqYALZuf.NnEWxoukHjC1LU.', 'TO85cYK06RcMIPEDNKRqVU7aEGxWQTaEu1mtlspGjoNXAM2Gh739mgp4cNON', '2015-11-09 14:54:48', '2015-11-09 15:42:25'),
-(8, 1, 'Grimrock', '', '', 'piscomarce@gmail.com', '$2y$10$4Cb2G0lGgQe4PYGWM6YrKeZjTIyJRJUYujayzV9Pf6ojkHX.PUKwy', 'aqSvytED7mqQZsrkU1WXD4iA4CywWZ6K4TYgInBThh8D8vGZwwVQm9utCnFc', '2015-11-09 15:48:18', '2015-11-09 15:50:02'),
-(9, 1, 'Fafa', '', '', 'difafa@gmail.com', '$2y$10$rVWETb8TQv8m/KBqWb3A4uTv91so3gxF59WedkCOkk2HN0w52afyu', '4qDem9lYdHb6n2AIfZM4rRGe8ZxDMOUkUchwFitcTl7TpNpxSoe7pwdr7Tai', '2015-11-09 15:51:02', '2015-11-09 15:54:13'),
-(10, 1, 'condor', '', '', 'sebacondor@gmail.com', '$2y$10$CgsCT7nAuUPhH1IdQe.eEOwufAqFzhnP6CLXgCLClgre5l8P15a/.', '4KBVfMNC51AIwQ1XVdwJ82zEZaOesU7JNujB1yH48OoEjxmjXHBrQEgZg7L5', '2015-11-09 15:54:47', '2015-11-09 16:29:22'),
-(11, 1, 'destro', 'martin', 'alpha', 'destro@gmail.com', '$2y$10$EDtny1LIX10YU0WE9AcGHekBKyyGSb/eA/Ms0eV99SmKGrFB/49r6', 'Pbq8DqUGkyAo4Mqa6198i1Yyg316A2FpSWewQIcHSmcgstdUvkz4JLOqy5Dk', '2015-11-09 15:55:52', '2015-11-09 17:22:39'),
-(12, 1, 'Delver', 'Agustin', 'Riveros', 'agusriver@gmail.com', '$2y$10$SdzEWfMBsJZvmq4L4/M/xuA6QVYmYBeELyGV1cbWIWmfkP.y0wp7.', NULL, '2015-11-13 23:36:12', '2015-11-13 23:36:12');
+INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `foto`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'Teemo-Time.jpg', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'lamqtkYigqLIfNdETTAL8jPEO8DJixDXj5o37zU6vHjRV8U0z8LfCkLzuyyY', '2015-10-19 03:00:00', '2015-11-20 18:43:34'),
+(2, 1, 'martincho', '', '', 'no-avatar', 'martinpentucci@gmail.com', '$2y$10$.vFsj7hWAWKCKYi.YooQkudK7d5pYM5dvvjzmM3Z1u.8noXoyxRsK', 'yQxgP12Tc7NB6Kjv4PobB2Wz5NEOmlS0y0LePqt4dGstXZSEQMUZsfmpLXle', '2015-11-06 22:31:38', '2015-11-06 22:33:10'),
+(3, 1, 'valdesoft', '', '', 'no-avatar', 'fervaldex01@gmail.com', '$2y$10$SGmMUUOowH6njM.c77jJeO1Jjjraw8cuVilj3Qva7Dp9ZFCEuy5OG', 'FuKSy1rFPJc58NHfyDNS1Xmv2pnE0LSzkublACUgHjpxZSVCLU8jpbSTMofS', '2015-11-06 23:08:45', '2015-11-06 23:09:30'),
+(6, 1, 'porras', '', '', 'no-avatar', 'algo@gmail.com', '$2y$10$RxED7hIkGtARYkZslZx92.swytFwPwEGbydDRPQY877yThDWzUBp.', NULL, '2015-11-07 00:03:56', '2015-11-07 00:03:56'),
+(7, 1, 'Mario', '', '', 'no-avatar', 'marioseba@gmail.com', '$2y$10$T.kf5joXzZhBHxGoItZB1.TfTpH16TqYALZuf.NnEWxoukHjC1LU.', 'TO85cYK06RcMIPEDNKRqVU7aEGxWQTaEu1mtlspGjoNXAM2Gh739mgp4cNON', '2015-11-09 14:54:48', '2015-11-09 15:42:25'),
+(8, 1, 'Grimrock', '', '', 'no-avatar', 'piscomarce@gmail.com', '$2y$10$4Cb2G0lGgQe4PYGWM6YrKeZjTIyJRJUYujayzV9Pf6ojkHX.PUKwy', 'aqSvytED7mqQZsrkU1WXD4iA4CywWZ6K4TYgInBThh8D8vGZwwVQm9utCnFc', '2015-11-09 15:48:18', '2015-11-09 15:50:02'),
+(9, 1, 'Fafa', '', '', 'no-avatar', 'difafa@gmail.com', '$2y$10$rVWETb8TQv8m/KBqWb3A4uTv91so3gxF59WedkCOkk2HN0w52afyu', '4qDem9lYdHb6n2AIfZM4rRGe8ZxDMOUkUchwFitcTl7TpNpxSoe7pwdr7Tai', '2015-11-09 15:51:02', '2015-11-09 15:54:13'),
+(10, 1, 'condor', '', '', 'no-avatar', 'sebacondor@gmail.com', '$2y$10$CgsCT7nAuUPhH1IdQe.eEOwufAqFzhnP6CLXgCLClgre5l8P15a/.', '4KBVfMNC51AIwQ1XVdwJ82zEZaOesU7JNujB1yH48OoEjxmjXHBrQEgZg7L5', '2015-11-09 15:54:47', '2015-11-09 16:29:22'),
+(11, 1, 'destro', 'martin', 'alpha', 'no-avatar', 'destro@gmail.com', '$2y$10$EDtny1LIX10YU0WE9AcGHekBKyyGSb/eA/Ms0eV99SmKGrFB/49r6', 'Pbq8DqUGkyAo4Mqa6198i1Yyg316A2FpSWewQIcHSmcgstdUvkz4JLOqy5Dk', '2015-11-09 15:55:52', '2015-11-09 17:22:39'),
+(12, 1, 'Delver', 'Agustin', 'Riveros', 'no-avatar', 'agusriver@gmail.com', '$2y$10$SdzEWfMBsJZvmq4L4/M/xuA6QVYmYBeELyGV1cbWIWmfkP.y0wp7.', NULL, '2015-11-13 23:36:12', '2015-11-13 23:36:12'),
+(13, 1, 'Teemo', 'Alfredo', 'Costa', 'no-avatar.png', 'temoalfredo@gmail.com', '$2y$10$gR8cuKBF./SQvW26Vr2VmeM20WinDNt/w3mKDhSKO6N5.bXaq.ZQS', '4MIbYCttR78XMDe8SOocNW7TXocj2jvLaOJJ3KrUk5COWgkjrLcKDRhGyXHU', '2015-11-20 18:42:05', '2015-11-20 18:44:27');
 
 --
 -- Restricciones para tablas volcadas
@@ -218,8 +239,14 @@ ALTER TABLE `books`
 -- Filtros para la tabla `book_item`
 --
 ALTER TABLE `book_item`
-  ADD CONSTRAINT `book_item_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `book_item_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `book_item_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `book_item_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `noticias`
+--
+ALTER TABLE `noticias`
+  ADD CONSTRAINT `noticias_ibfk_1` FOREIGN KEY (`autor`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `users`
