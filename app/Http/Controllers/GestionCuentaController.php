@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class GestionCuentaController extends Controller
 {
@@ -21,16 +23,25 @@ class GestionCuentaController extends Controller
     public function save(Request $request)
     {
  
-       //obtenemos el campo file definido en el formulario
-       $file = $request->file('file');
- 
-       //obtenemos el nombre del archivo
-       $nombre = $file->getClientOriginalName();
- 
+        //obtenemos el campo file definido en el formulario
+        $file = $request->file('file');
+
+        $usuarioid = Auth::user();
+
+        $extencion = substr($file->getClientOriginalName(), -4); 
+
+        $nombre = $usuarioid->name.$extencion;
+
+        $user = User::find($usuarioid->id);
+
+        $user->foto = $nombre;
+
+        $user->save();
+
        //indicamos que queremos guardar un nuevo archivo en el disco local
        \Storage::disk('local')->put($nombre,  \File::get($file));
  
-       return "archivo guardado";
+       return redirect('perfil');
     }
 
     /**

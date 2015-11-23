@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-11-2015 a las 12:44:50
+-- Tiempo de generación: 23-11-2015 a las 12:28:10
 -- Versión del servidor: 5.5.44
 -- Versión de PHP: 5.6.12-1+deb.sury.org~precise+1
 
@@ -206,24 +206,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `rol_id` (`rol_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `rol_id`, `name`, `nombre`, `apellido`, `foto`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'Teemo-Time.jpg', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'lamqtkYigqLIfNdETTAL8jPEO8DJixDXj5o37zU6vHjRV8U0z8LfCkLzuyyY', '2015-10-19 03:00:00', '2015-11-20 18:43:34'),
-(2, 1, 'martincho', '', '', 'no-avatar', 'martinpentucci@gmail.com', '$2y$10$.vFsj7hWAWKCKYi.YooQkudK7d5pYM5dvvjzmM3Z1u.8noXoyxRsK', 'yQxgP12Tc7NB6Kjv4PobB2Wz5NEOmlS0y0LePqt4dGstXZSEQMUZsfmpLXle', '2015-11-06 22:31:38', '2015-11-06 22:33:10'),
-(3, 1, 'valdesoft', '', '', 'no-avatar', 'fervaldex01@gmail.com', '$2y$10$SGmMUUOowH6njM.c77jJeO1Jjjraw8cuVilj3Qva7Dp9ZFCEuy5OG', 'FuKSy1rFPJc58NHfyDNS1Xmv2pnE0LSzkublACUgHjpxZSVCLU8jpbSTMofS', '2015-11-06 23:08:45', '2015-11-06 23:09:30'),
-(6, 1, 'porras', '', '', 'no-avatar', 'algo@gmail.com', '$2y$10$RxED7hIkGtARYkZslZx92.swytFwPwEGbydDRPQY877yThDWzUBp.', NULL, '2015-11-07 00:03:56', '2015-11-07 00:03:56'),
-(7, 1, 'Mario', '', '', 'no-avatar', 'marioseba@gmail.com', '$2y$10$T.kf5joXzZhBHxGoItZB1.TfTpH16TqYALZuf.NnEWxoukHjC1LU.', 'TO85cYK06RcMIPEDNKRqVU7aEGxWQTaEu1mtlspGjoNXAM2Gh739mgp4cNON', '2015-11-09 14:54:48', '2015-11-09 15:42:25'),
-(8, 1, 'Grimrock', '', '', 'no-avatar', 'piscomarce@gmail.com', '$2y$10$4Cb2G0lGgQe4PYGWM6YrKeZjTIyJRJUYujayzV9Pf6ojkHX.PUKwy', 'aqSvytED7mqQZsrkU1WXD4iA4CywWZ6K4TYgInBThh8D8vGZwwVQm9utCnFc', '2015-11-09 15:48:18', '2015-11-09 15:50:02'),
-(9, 1, 'Fafa', '', '', 'no-avatar', 'difafa@gmail.com', '$2y$10$rVWETb8TQv8m/KBqWb3A4uTv91so3gxF59WedkCOkk2HN0w52afyu', '4qDem9lYdHb6n2AIfZM4rRGe8ZxDMOUkUchwFitcTl7TpNpxSoe7pwdr7Tai', '2015-11-09 15:51:02', '2015-11-09 15:54:13'),
-(10, 1, 'condor', '', '', 'no-avatar', 'sebacondor@gmail.com', '$2y$10$CgsCT7nAuUPhH1IdQe.eEOwufAqFzhnP6CLXgCLClgre5l8P15a/.', '4KBVfMNC51AIwQ1XVdwJ82zEZaOesU7JNujB1yH48OoEjxmjXHBrQEgZg7L5', '2015-11-09 15:54:47', '2015-11-09 16:29:22'),
-(11, 1, 'destro', 'martin', 'alpha', 'no-avatar', 'destro@gmail.com', '$2y$10$EDtny1LIX10YU0WE9AcGHekBKyyGSb/eA/Ms0eV99SmKGrFB/49r6', 'Pbq8DqUGkyAo4Mqa6198i1Yyg316A2FpSWewQIcHSmcgstdUvkz4JLOqy5Dk', '2015-11-09 15:55:52', '2015-11-09 17:22:39'),
-(12, 1, 'Delver', 'Agustin', 'Riveros', 'no-avatar', 'agusriver@gmail.com', '$2y$10$SdzEWfMBsJZvmq4L4/M/xuA6QVYmYBeELyGV1cbWIWmfkP.y0wp7.', NULL, '2015-11-13 23:36:12', '2015-11-13 23:36:12'),
-(13, 1, 'Teemo', 'Alfredo', 'Costa', 'no-avatar.png', 'temoalfredo@gmail.com', '$2y$10$gR8cuKBF./SQvW26Vr2VmeM20WinDNt/w3mKDhSKO6N5.bXaq.ZQS', '4MIbYCttR78XMDe8SOocNW7TXocj2jvLaOJJ3KrUk5COWgkjrLcKDRhGyXHU', '2015-11-20 18:42:05', '2015-11-20 18:44:27');
+(1, 4, 'Alancitox', 'Eliezer', 'Arza', 'Alancitox.jpg', 'arzapersonal@gmail.com', '$2y$10$QIi9221CRlykiAbImbi4rOGPDZf0.MP3fOZs/G/e6G148645TPIxS', 'pvcZbhsUpgiA2mX6DjqaTx4PHCnDiyeiScvKZg4feWxvKv7ardLAZTvRRrAI', '2015-10-19 03:00:00', '2015-11-23 18:12:11'),
+(2, 2, 'martincho', '', '', 'no-avatar.png', 'martinpentucci@gmail.com', '$2y$10$.vFsj7hWAWKCKYi.YooQkudK7d5pYM5dvvjzmM3Z1u.8noXoyxRsK', 'yQxgP12Tc7NB6Kjv4PobB2Wz5NEOmlS0y0LePqt4dGstXZSEQMUZsfmpLXle', '2015-11-06 22:31:38', '2015-11-06 22:33:10'),
+(3, 2, 'valdesoft', '', '', 'valde.jpg', 'fervaldex01@gmail.com', '$2y$10$SGmMUUOowH6njM.c77jJeO1Jjjraw8cuVilj3Qva7Dp9ZFCEuy5OG', 'FuKSy1rFPJc58NHfyDNS1Xmv2pnE0LSzkublACUgHjpxZSVCLU8jpbSTMofS', '2015-11-06 23:08:45', '2015-11-06 23:09:30'),
+(7, 1, 'Mario', '', '', 'no-avatar.png', 'marioseba@gmail.com', '$2y$10$T.kf5joXzZhBHxGoItZB1.TfTpH16TqYALZuf.NnEWxoukHjC1LU.', 'TO85cYK06RcMIPEDNKRqVU7aEGxWQTaEu1mtlspGjoNXAM2Gh739mgp4cNON', '2015-11-09 14:54:48', '2015-11-09 15:42:25'),
+(8, 1, 'Grimrock', '', '', 'no-avatar.png', 'piscomarce@gmail.com', '$2y$10$4Cb2G0lGgQe4PYGWM6YrKeZjTIyJRJUYujayzV9Pf6ojkHX.PUKwy', 'aqSvytED7mqQZsrkU1WXD4iA4CywWZ6K4TYgInBThh8D8vGZwwVQm9utCnFc', '2015-11-09 15:48:18', '2015-11-09 15:50:02'),
+(9, 1, 'Fafa', '', '', 'no-avatar.png', 'difafa@gmail.com', '$2y$10$rVWETb8TQv8m/KBqWb3A4uTv91so3gxF59WedkCOkk2HN0w52afyu', '4qDem9lYdHb6n2AIfZM4rRGe8ZxDMOUkUchwFitcTl7TpNpxSoe7pwdr7Tai', '2015-11-09 15:51:02', '2015-11-09 15:54:13'),
+(10, 1, 'condor', '', '', 'no-avatar.png', 'sebacondor@gmail.com', '$2y$10$CgsCT7nAuUPhH1IdQe.eEOwufAqFzhnP6CLXgCLClgre5l8P15a/.', '4KBVfMNC51AIwQ1XVdwJ82zEZaOesU7JNujB1yH48OoEjxmjXHBrQEgZg7L5', '2015-11-09 15:54:47', '2015-11-09 16:29:22'),
+(11, 1, 'destro', 'martin', 'alpha', 'no-avatar.png', 'destro@gmail.com', '$2y$10$EDtny1LIX10YU0WE9AcGHekBKyyGSb/eA/Ms0eV99SmKGrFB/49r6', 'Pbq8DqUGkyAo4Mqa6198i1Yyg316A2FpSWewQIcHSmcgstdUvkz4JLOqy5Dk', '2015-11-09 15:55:52', '2015-11-09 17:22:39'),
+(12, 1, 'Delver', 'Agustin', 'Riveros', 'no-avatar.png', 'agusriver@gmail.com', '$2y$10$SdzEWfMBsJZvmq4L4/M/xuA6QVYmYBeELyGV1cbWIWmfkP.y0wp7.', NULL, '2015-11-13 23:36:12', '2015-11-13 23:36:12'),
+(13, 1, 'Teemo', 'Alfredo', 'Costa', 'no-avatar.png', 'temoalfredo@gmail.com', '$2y$10$gR8cuKBF./SQvW26Vr2VmeM20WinDNt/w3mKDhSKO6N5.bXaq.ZQS', '4MIbYCttR78XMDe8SOocNW7TXocj2jvLaOJJ3KrUk5COWgkjrLcKDRhGyXHU', '2015-11-20 18:42:05', '2015-11-20 18:44:27'),
+(14, 1, 'luis', 'luis', 'alberto', 'luis.jpg', 'lualberto@gmail.com', '$2y$10$H0HFivQL1LatiFNx.XmUq.3HqL4yWNsuP5Jf.cbZ9mjVvAuxx66kG', 'cC7ZuKBIQjMnAFKYcOAaUkQT9yq3m9YiAUHHAjEweI97VZ6KSQD25x2mfX0P', '2015-11-23 18:12:52', '2015-11-23 18:27:45');
 
 --
 -- Restricciones para tablas volcadas

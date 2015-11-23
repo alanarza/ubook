@@ -42,7 +42,7 @@
   		<div class="media">
 		  <div class="media-left media-top">
 		    <a href="#">
-		      <img class="media-object" style="max-width: 60px; max-heigth: 60px;"  src="/storage/{{ $user->foto }}" alt="...">
+		      <img class="media-object" style="max-width: 60px; max-heigth: 60px;"  src="/storage/{{ $noticia->autorObj->foto }}" alt="...">
 		    </a>
 		  </div>
 		  <div class="media-body">

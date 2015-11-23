@@ -28,7 +28,7 @@
 <div class="panel panel-default">
 <div class="panel-body">
 
-	<form id="miform" method="POST" action="/gestion_cuenta/" >
+	<form id="miform" method="POST" action="/gestion_cuenta/" enctype="multipart/form-data">
     <fieldset>
 
       {!! csrf_field() !!}
@@ -36,7 +36,7 @@
 		  <div class="form-group col-lg-12" style="margin-top: 10px;">  
         <div class="col-lg-7">
           <label for="foto" style="margin-top: 10px;"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Foto de Perfil</label>
-          <input type="file" accept-charset="UTF-8" enctype="multipart/form-data" class="form-control" name="file" id="foto">
+          <input type="file" accept-charset="UTF-8" class="form-control" name="file" id="foto">
 
           <label for="nombre" style="margin-top: 10px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Nombre/s</label>
           <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
@@ -80,12 +80,10 @@
 
       </div>
 
-      <div class="form-group">
-        <div class="col-lg-12">          
+               
           <button type="reset" class="btn btn-default">Limpiar</button>
           <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-      </div>
+        
 
 		</fieldset>
   </form>
