@@ -96,8 +96,8 @@
 
 @section('modal')
 <!-- Modal -->
-<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
+<div class="modal fade bs-example-modal-md" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -110,49 +110,44 @@
 
             {!! csrf_field() !!}
 
-            <div class="form-group">
-              <label for="nomUsuario" class="col-lg-3 control-label">Usuario</label>
-              <div class="col-lg-9">
+            <div class="col-lg-6" style="margin-top: 10px;">
+                <label for="nomUsuario" class="control-label">Usuario</label>
                 <input type="text" class="form-control" id="nomUsuario" name="name" placeholder="Nombre de Usuario">
               </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 5px;">
-              <label for="nombre" class="col-lg-3 control-label">Nombre</label>
-              <div class="col-lg-9" style="margin-top: 5px;">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 5px;">
-              <label for="apellido" class="col-lg-3 control-label">Apellido</label>
-              <div class="col-lg-9" style="margin-top: 5px;">
-                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 5px;">
-              <label for="email" class="col-lg-3 control-label">Email</label>
-              <div class="col-lg-9" style="margin-top: 5px;">
-                <input type="text" class="form-control" id="email" name="email" placeholder="alguien@gmail.com">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 5px;">
-              <label for="inputPassword" class="col-lg-3 control-label">Password</label>
-              <div class="col-lg-9" style="margin-top: 5px;">
-                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 5px;">
-              <label for="inputPassword2" class="col-lg-3 control-label">Password</label>
-              <div class="col-lg-9" style="margin-top: 5px;">
-                <input type="password" class="form-control" id="inputPassword2" name="password_confirmation" placeholder="Confirmar Password">
-              </div>
-            </div>
+            
 
             
+              <div class="col-lg-6" style="margin-top: 10px;">
+                <label for="email" class="control-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="alguien@gmail.com">
+              </div>
+            
+
+            
+              <div class="col-lg-6" style="margin-top: 10px;">
+                <label for="nombre" class="control-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre/s">
+              </div>
+            
+
+            
+              <div class="col-lg-6" style="margin-top: 10px;">
+                <label for="apellido" class="control-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido/s">
+              </div>
+            
+
+            
+              <div class="col-lg-6" style="margin-top: 10px;">
+                <label for="inputPassword" class="control-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+              </div>
+                        
+              <div class="col-lg-6" style="margin-top: 10px;">
+                <label for="inputPassword2" class="control-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" name="password_confirmation" placeholder="Confirmar Password">
+              </div>
+
           </fieldset>
         </form>
 

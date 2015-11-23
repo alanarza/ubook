@@ -16,6 +16,19 @@
 
   @section('titulo_pagina', 'Cuenta de Usuario')
 
+  <div class="container">
+               @if (count($errors) > 0)
+        <div class="alert alert-warning" role="alert">
+      <ul>
+              <strong>Oops! Something went wrong : </strong>
+          @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
+
 @stop
 
 @section('nav_side')
@@ -27,6 +40,8 @@
 <div class="col-lg-9">
 <div class="panel panel-default">
 <div class="panel-body">
+
+
 
 	<form id="miform" method="POST" action="/gestion_cuenta/" enctype="multipart/form-data">
     <fieldset>
@@ -59,13 +74,13 @@
 
         <div class="form-group col-lg-12">
           <label for="textArea" class="control-label">Descripcion Personal</label>
-          <textarea class="form-control" rows="3" id="textArea"></textarea>
+          <textarea class="form-control" rows="3" id="textArea" name="descripcion"></textarea>
           <span class="help-block">Una descripcion personal acerca de ti.. Tus gustos, tus preferencias.</span>
         </div>
 
         <div class="form-group col-lg-4">
           <label for="inputPassword" class="control-label">Contraseña Antigua</label>
-          <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+          <input type="password" class="form-control" id="inputPassword" name="oldpassword" placeholder="Password">
         </div>
 
         <div class="form-group col-lg-4">

@@ -22,25 +22,57 @@ class GestionCuentaController extends Controller
 
     public function save(Request $request)
     {
+
+        $this->validate($request, [
+            'nombre'    => 'alpha|max:255',
+            'apellido'  => 'alpha|max:255',
+            'password'  => 'confirmed|min:6',
+            'oldpassword'  => 'min:6',
+        ]);
  
-        //obtenemos el campo file definido en el formulario
-        $file = $request->file('file');
-
         $usuarioid = Auth::user();
-
-        $extencion = substr($file->getClientOriginalName(), -4); 
-
-        $nombre = $usuarioid->name.$extencion;
 
         $user = User::find($usuarioid->id);
 
-        $user->foto = $nombre;
+        if($request->file('file') != "")
+        {
+            //obtenemos el campo file definido en el formulario
+            $file = $request->file('file');
+
+            $extencion = substr($file->getClientOriginalName(), -4); 
+
+            $nombre = $usuarioid->name.$extencion;
+
+            $user->foto = $nombre;
+
+           //indicamos que queremos guardar un nuevo archivo en el disco local
+           \Storage::disk('local')->put($nombre,  \File::get($file));
+        }
+        
+        if($request->input('nombre') != "")
+        {
+            $user->nombre = $request->input('nombre');
+        }
+
+        if($request->input('apellido') != "")
+        {
+            $user->apellido = $request->input('apellido');
+        }
+
+        if($request->input('descripcion') != "")
+        {
+            $user->descripcion = $request->input('descripcion');
+        }
+
+        if($request->input('oldpassword') == $user->password && $request->input('password') != "")
+        {
+            $hasheado = $request->input('password');
+
+            $user->password = bcrypt($hasheado);
+        }
 
         $user->save();
 
-       //indicamos que queremos guardar un nuevo archivo en el disco local
-       \Storage::disk('local')->put($nombre,  \File::get($file));
- 
        return redirect('perfil');
     }
 
