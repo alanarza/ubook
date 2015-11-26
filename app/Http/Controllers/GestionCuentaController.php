@@ -64,11 +64,18 @@ class GestionCuentaController extends Controller
             $user->descripcion = $request->input('descripcion');
         }
 
-        if($request->input('oldpassword') == $user->password && $request->input('password') != "")
+        if($request->input('oldpassword') != "" && $request->input('password') != "" && $request->input('password_confirmation') != "")
         {
-            $hasheado = $request->input('password');
+            if(bcrypt($request->input('oldpassword')) == $user->password)
+            {
+                $user->password = bcrypt($request->input('password'));
+            }
 
-            $user->password = bcrypt($hasheado);
+        }
+        else
+        {
+            return redirect('cuenta')
+                ->withErrors('Complete todos los campos password');
         }
 
         $user->save();
