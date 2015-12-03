@@ -23,12 +23,12 @@
     <div id="navbar" class="navbar-collapse collapse">
       
 
-      <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Ubooks">
-      </div>
-      <button type="submit" class="btn btn-inverse">Buscar</button>
-    </form>
+      <form class="navbar-form navbar-left" role="search" method="GET" action="/busqueda">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nombre Apellido" name="user" id="apellido">
+        </div>
+        <button type="submit" class="btn btn-inverse">Buscar</button>
+      </form>
 
       <ul class="nav navbar-nav navbar-right">
 

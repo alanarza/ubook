@@ -21,6 +21,8 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Rutas publicas
 Route::resource('perfil_publico','PerfilController@publico');
 Route::resource('ubooks_publico','UbooksController@publico');
+Route::get('/busqueda/{usr}','BusquedaController@busquedaUsuario');
+
 
 // Rutas protegidas
 $router->group(['middleware' => ['auth']], function()

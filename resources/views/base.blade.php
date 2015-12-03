@@ -89,6 +89,7 @@
 
     </style>
 
+    
 
 </head>
 
@@ -183,9 +184,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           
 
-          <form class="navbar-form navbar-left" role="search">
+           <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Ubooks">
+            <input type="text" class="form-control" placeholder="Nombre Apellido" name="apellido" id="apellido">
           </div>
           <button type="submit" class="btn btn-inverse">Buscar</button>
         </form>
@@ -276,6 +277,23 @@
 
   {!! Html::script('assets/js/jquery-2.1.4.min.js') !!}
   {!! Html::script('assets/js/bootstrap.min.js') !!}
+
+  {!! Html::script('assets/jquery-ui/external/jquery/jquery.js') !!}
+  {!! Html::script('assets/jquery-ui/jquery-ui.js') !!}
+  
+
+  <script>
+      $(function()
+      {
+         $( "#apellido" ).autocomplete({
+          source: "search/autocomplete",
+          minLength: 3,
+          select: function(event, ui) {
+            $('#apellido').val(ui.item.value);
+          }
+        });
+      });
+    </script>
 
 </body>
 </html>
