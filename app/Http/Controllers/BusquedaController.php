@@ -21,9 +21,9 @@ class BusquedaController extends Controller
         //
     }
 
-    public function busquedaUsuario($usr){
+    public function busquedaUsuario(Request $req){
         
-        $term = $usr;
+        $term = $req->input('usr');
         $user = Auth::user();
 
         $queries = DB::table('users')

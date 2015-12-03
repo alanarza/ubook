@@ -25,7 +25,7 @@
 
       <form class="navbar-form navbar-left" role="search" method="GET" action="/busqueda">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Nombre Apellido" name="user" id="apellido">
+          <input type="text" class="form-control" placeholder="Nombre Apellido" name="usr" id="apellido">
         </div>
         <button type="submit" class="btn btn-inverse">Buscar</button>
       </form>
