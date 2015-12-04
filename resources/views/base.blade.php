@@ -184,9 +184,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           
 
-           <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" method="GET" action="/buscar">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nombre Apellido" name="apellido" id="apellido">
+            <input type="text" class="form-control" placeholder="Nombre Apellido" name="nombre" id="buscar">
           </div>
           <button type="submit" class="btn btn-inverse">Buscar</button>
         </form>

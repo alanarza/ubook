@@ -37,22 +37,22 @@ class BusquedaController extends Controller
         
     }
 
-    /*
-    $term = Input::get('term');
+    public function busquedaAnonima(Request $req){
         
-        $results = array();
-        
+        $term = $req->input('nombre');
+        $user = Auth::user();
+
         $queries = DB::table('users')
             ->where('nombre', 'LIKE', '%'.$term.'%')
             ->orWhere('apellido', 'LIKE', '%'.$term.'%')
-            ->take(5)->get();
-    
-        foreach ($queries as $query)
-        {
-            $results[] = [ 'id' => $query->id, 'value' => $query->nombre.' '.$query->apellido ];
-        }
-        return Response::json($results);
-    */
+            ->orWhere('name', 'LIKE', '%'.$term.'%')
+            ->paginate(5);
+
+
+        return view('busqueda_anonima', compact('queries'));
+        
+    }
+
 
     /**
      * Show the form for creating a new resource.

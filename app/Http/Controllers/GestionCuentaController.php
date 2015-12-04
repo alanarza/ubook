@@ -64,6 +64,8 @@ class GestionCuentaController extends Controller
             $user->descripcion = $request->input('descripcion');
         }
 
+
+        /*
         if($request->input('oldpassword') != "" && $request->input('password') != "" && $request->input('password_confirmation') != "")
         {
             if(bcrypt($request->input('oldpassword')) == $user->password)
@@ -77,6 +79,7 @@ class GestionCuentaController extends Controller
             return redirect('cuenta')
                 ->withErrors('Complete todos los campos password');
         }
+        */
 
         $user->save();
 

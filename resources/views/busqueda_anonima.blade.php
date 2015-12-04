@@ -1,4 +1,4 @@
-@extends('perfil_base')
+@extends('base')
 
 @section('title', 'Bienvenido a Ubook')
 
@@ -14,7 +14,13 @@
 
   @parent
 
-  @section('titulo_pagina', 'Busqueda de Usuarios')
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="page-header">
+            <h1 id="type"> Busqueda de Usuarios </h1>
+        </div>
+    </div>
+  </div>
 
   <div class="container">
                @if (count($errors) > 0)
@@ -44,21 +50,20 @@
 <div class="row">
 
 @foreach ($queries as $usuario)
-<a href="/user/{{ $usuario->name }}">
+
 <div class="col-lg-6">
     <div class="well">
 
       <div class="media">
       <div class="media-left media-top">
-        
+        <a href="#">
           <img class="media-object" style="max-width: 60px; max-heigth: 60px;"  src="/storage/{{ $usuario->foto }}" alt="...">
-        
+        </a>
       </div>
       <div class="media-body">
         <h4 class="media-heading">{{ $usuario->nombre }} {{ $usuario->apellido }}</h4>
 
           {{ $usuario->descripcion }}
-
 
         <h5>  {{ $usuario->name }} </h5>
 
@@ -67,7 +72,6 @@
 
   </div>
 </div>
-</a>
 
 @endforeach
 

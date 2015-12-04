@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class PerfilController extends Controller
 {
@@ -22,9 +23,19 @@ class PerfilController extends Controller
         return view('perfil.perfil',compact('noticias','user'));
     }
 
-    public function publico()
+    public function publico($miusr)
     {
-        return view('perfil.perfil_publico');
+
+        $term = $miusr;
+        $user = Auth::user();
+
+        $queries = DB::table('users')
+            ->where('name', 'LIKE', '%'.$term.'%')
+            ->first();
+
+
+        return view('perfil.usuario', compact('queries','user'));
+
     }
 
     public function cuenta()

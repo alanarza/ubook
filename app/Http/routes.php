@@ -19,9 +19,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Rutas publicas
-Route::resource('perfil_publico','PerfilController@publico');
+Route::get('user/{busr}','PerfilController@publico');
 Route::resource('ubooks_publico','UbooksController@publico');
-Route::get('/busqueda','BusquedaController@busquedaUsuario');
 
 
 // Rutas protegidas
@@ -34,12 +33,14 @@ $router->group(['middleware' => ['auth']], function()
 	Route::resource('favoritos','FavoritosController');
     Route::resource('cuenta','PerfilController@cuenta');
     Route::post('gestion_cuenta','GestionCuentaController@save');
+    Route::get('/busqueda','BusquedaController@busquedaUsuario');
 });
 
 // Rutas protegidas if authenticated
 $router->group(['middleware' => ['guest']], function()
 {
 	Route::resource('/','IndexController');
+    Route::get('/buscar','BusquedaController@busquedaAnonima');
 });
 
 // Rutas de almacenamiento
